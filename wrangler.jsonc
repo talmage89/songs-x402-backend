@@ -14,14 +14,14 @@
     "bindings": [
       {
         "name": "SONGS",
-        "class_name": "Songs"
+        "class_name": "SongsDo"
       }
     ]
   },
   "migrations": [
     {
       "tag": "v1",
-      "new_classes": ["Songs"]
+      "new_sqlite_classes": ["SongsDo"]
     }
   ]
   /**

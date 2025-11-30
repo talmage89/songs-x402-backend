@@ -1,6 +1,6 @@
 import type { Song } from "~/types";
 
-export const data: Song[] = [
+export const data: Omit<Song, "id">[] = [
   {
     title: "Hello, Cloudflare",
     upvotes: 10,

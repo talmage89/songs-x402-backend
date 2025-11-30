@@ -1,5 +1,5 @@
 {
-  "name": "songs-x402",
+  "name": "songs-x402-backend",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -8,7 +8,10 @@
     "start": "wrangler dev",
     "typegen": "wrangler types",
     "format": "biome format --write .",
-    "lint": "biome lint ."
+    "lint": "biome lint .",
+    "dev:list": "curl http://localhost:8787/d/list && echo",
+    "dev:upvote": "curl -X POST http://localhost:8787/d/1/up && echo",
+    "dev:downvote": "curl -X POST http://localhost:8787/d/1/down && echo"
   },
   "dependencies": {
     "itty-router": "^5.0.22",

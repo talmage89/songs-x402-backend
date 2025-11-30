@@ -1,9 +1,7 @@
-import { error, json } from "itty-router";
-import router from "./platform/router";
+import router from "./router";
+
+export { SongsDo } from "./do/songs/songs";
 
 export default {
-  fetch: (request: Request, env: Env, ctx: ExecutionContext) =>
-    router.fetch(request, env, ctx).then(json).catch(error),
-};
-
-export { Songs } from "./platform/do";
+  fetch: (request, env, ctx) => router.fetch(request, env, ctx),
+} satisfies ExportedHandler<Env>;
