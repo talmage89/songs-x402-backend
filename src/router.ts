@@ -1,7 +1,6 @@
 import {
   error,
   IttyRouter,
-  json,
   type RequestHandler,
   withParams,
 } from "itty-router";
@@ -27,7 +26,9 @@ const createRouter = () => {
   for (const endpoint of apiEndpoints) {
     const handler: RequestHandler = async (request, env) => {
       const data = await endpoint.handler(request, env);
-      return new Response(JSON.stringify(data));
+      return data instanceof Response
+        ? data
+        : new Response(JSON.stringify(data));
     };
     router[endpoint.method](endpoint.path, handler);
   }
@@ -37,4 +38,4 @@ const createRouter = () => {
   return router;
 };
 
-export default createRouter().then(json).catch(error);
+export default createRouter();
